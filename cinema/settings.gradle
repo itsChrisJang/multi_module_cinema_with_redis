@@ -1,9 +1,0 @@
-rootProject.name = 'cinema'
-
-include("reservation")
-include("schedule")
-include("seat")
-include("movie")
-include("screen")
-include("api_gateway")
-
