@@ -1,28 +1,225 @@
 # Redis_project  
 
 ```bash
-redis-project/
-│── application/      # Use Case (비즈니스 로직)
-│   ├── src/main/java/com/example/application/
-│   │   ├── usecase/  # 유스케이스 정의
-│   │   ├── service/  # 서비스 계층
-│   │   ├── dto/      # DTO 클래스
-│   │   ├── event/    # 이벤트 핸들러 (Kafka, Redis Pub/Sub 등)
-│── domain/           # Core Business Logic (순수한 도메인)
-│   ├── src/main/java/com/example/domain/
-│   │   ├── model/    # 도메인 엔티티
-│   │   ├── repository/  # 도메인 레포지토리 인터페이스
-│── infrastructure/   # 외부 인프라 (DB, Redis, API)
-│   ├── src/main/java/com/example/infrastructure/
-│   │   ├── repository/  # JPA, MyBatis, Redis 구현체
-│   │   ├── config/   # Spring 설정 관련
-│── presentation/     # Controller, Web 관련 처리
-│   ├── src/main/java/com/example/presentation/
-│   │   ├── controller/  # API 엔드포인트
-│   │   ├── handler/     # 예외 핸들러
-│── config/            # 공통 설정 (yml, security 설정)
-│── build.gradle
-│── settings.gradle
+tree
+.
+├── MODULE_STATE
+│   └── README.md
+├── README.md
+├── build
+│   └── reports
+│       └── problems
+│           └── problems-report.html
+├── build.gradle
+├── db_table.png
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
+├── image
+│   └── erd.png
+├── module_application
+│   ├── build.gradle
+│   ├── out
+│   │   └── production
+│   │       └── classes
+│   │           └── project
+│   │               └── redis
+│   │                   └── movie
+│   │                       ├── dto
+│   │                       │   ├── NowPlayMovieDto$NowPlayMovieDtoBuilder.class
+│   │                       │   └── NowPlayMovieDto.class
+│   │                       └── service
+│   │                           └── MovieService.class
+│   └── src
+│       └── main
+│           ├── generated
+│           └── java
+│               └── project
+│                   └── redis
+│                       └── movie
+│                           ├── dto
+│                           │   └── CurrentPlayingMovieDto.java
+│                           └── service
+│                               └── MovieService.java
+├── module_common
+│   ├── build.gradle
+│   └── src
+│       └── main
+│           └── java
+│               └── project
+│                   └── redis
+│                       └── Main.java
+├── module_domain
+│   ├── build.gradle
+│   ├── out
+│   │   └── production
+│   │       └── classes
+│   │           └── project
+│   │               └── redis
+│   │                   ├── cinema
+│   │                   │   ├── Cinema.class
+│   │                   │   └── CinemaSeats.class
+│   │                   ├── movie
+│   │                   │   ├── Movie.class
+│   │                   │   ├── MovieGenre.class
+│   │                   │   └── MovieRate.class
+│   │                   ├── screening
+│   │                   │   └── Screening.class
+│   │                   └── seat
+│   │                       └── Seat.class
+│   └── src
+│       └── main
+│           ├── generated
+│           └── java
+│               └── project
+│                   └── redis
+│                       ├── cinema
+│                       │   ├── Cinema.java
+│                       │   └── CinemaSeats.java
+│                       ├── movie
+│                       │   ├── Movie.java
+│                       │   ├── MovieGenre.java
+│                       │   └── MovieRate.java
+│                       ├── schedule
+│                       │   └── Schedule.java
+│                       ├── screen
+│                       │   └── Screen.java
+│                       └── seat
+│                           ├── Seat.java
+│                           └── SeatStatus.java
+├── module_infrastructure
+│   ├── build.gradle
+│   ├── out
+│   │   └── production
+│   │       └── classes
+│   │           └── project
+│   │               └── redis
+│   │                   ├── cinema
+│   │                   │   ├── entity
+│   │                   │   │   ├── CinemaEntity$CinemaEntityBuilder.class
+│   │                   │   │   └── CinemaEntity.class
+│   │                   │   └── mapper
+│   │                   │       ├── CinemaMapper.class
+│   │                   │       └── CinemaMapperImpl.class
+│   │                   ├── common
+│   │                   │   ├── config
+│   │                   │   │   └── JpaConfig.class
+│   │                   │   └── entity
+│   │                   │       └── BaseEntity.class
+│   │                   ├── movie
+│   │                   │   ├── adapter
+│   │                   │   │   └── MovieAdapter.class
+│   │                   │   ├── entity
+│   │                   │   │   ├── MovieEntity$MovieEntityBuilder.class
+│   │                   │   │   └── MovieEntity.class
+│   │                   │   ├── mapper
+│   │                   │   │   ├── MovieMapper.class
+│   │                   │   │   └── MovieMapperImpl.class
+│   │                   │   └── repository
+│   │                   │       └── MovieRepository.class
+│   │                   ├── screening
+│   │                   │   ├── adapter
+│   │                   │   │   └── ScreeningAdapter.class
+│   │                   │   ├── entity
+│   │                   │   │   ├── ScreeningEntity$ScreeningEntityBuilder.class
+│   │                   │   │   └── ScreeningEntity.class
+│   │                   │   ├── mapper
+│   │                   │   │   ├── ScreeningMapper.class
+│   │                   │   │   └── ScreeningMapperImpl.class
+│   │                   │   └── repository
+│   │                   │       └── ScreeningRepository.class
+│   │                   └── seat
+│   │                       ├── entity
+│   │                       │   ├── SeatEntity$SeatEntityBuilder.class
+│   │                       │   └── SeatEntity.class
+│   │                       └── mapper
+│   │                           ├── SeatMapper.class
+│   │                           └── SeatMapperImpl.class
+│   └── src
+│       └── main
+│           ├── generated
+│           └── java
+│               └── project
+│                   └── redis
+│                       ├── common
+│                       │   ├── config
+│                       │   │   └── JpaConfig.java
+│                       │   └── entity
+│                       │       └── BaseEntity.java
+│                       ├── movie
+│                       │   ├── adapter
+│                       │   │   └── MovieAdapter.java
+│                       │   ├── entity
+│                       │   │   └── MovieEntity.java
+│                       │   ├── mapper
+│                       │   │   ├── MovieMapper.java
+│                       │   │   └── MovieMapperImpl.java
+│                       │   └── repository
+│                       │       └── MovieRepository.java
+│                       ├── schedule
+│                       │   ├── adapter
+│                       │   │   └── ScheduleAdapter.java
+│                       │   ├── entity
+│                       │   │   └── ScheduleEntity.java
+│                       │   ├── mapper
+│                       │   │   ├── ScheduleMapper.java
+│                       │   │   └── ScreeningMapperImpl.java
+│                       │   └── repository
+│                       │       └── ScheduleRepository.java
+│                       ├── screen
+│                       │   ├── entity
+│                       │   │   └── ScreenEntity.java
+│                       │   └── mapper
+│                       │       ├── ScreenMapper.java
+│                       │       └── ScreenMapperImpl.java
+│                       └── seat
+│                           ├── entity
+│                           │   └── SeatEntity.java
+│                           └── mapper
+│                               ├── SeatMapper.java
+│                               └── SeatMapperImpl.java
+├── module_presentation
+│   ├── build.gradle
+│   ├── out
+│   │   └── production
+│   │       ├── classes
+│   │       │   └── project
+│   │       │       └── redis
+│   │       │           ├── CinemaApplication.class
+│   │       │           ├── movie
+│   │       │           │   ├── controller
+│   │       │           │   │   └── MovieController.class
+│   │       │           │   └── dto
+│   │       │           │       └── NowPlayingMovieResponseDto.class
+│   │       │           └── screening
+│   │       │               └── dto
+│   │       │                   └── ScreeningDto.class
+│   │       └── resources
+│   │           └── application.yml
+│   └── src
+│       └── main
+│           ├── generated
+│           ├── java
+│           │   └── project
+│           │       └── redis
+│           │           ├── CinemaApplication.java
+│           │           ├── movie
+│           │           │   ├── controller
+│           │           │   │   └── MovieController.java
+│           │           │   └── dto
+│           │           │       └── NowPlayingMovieResponseDto.java
+│           │           └── schedule
+│           │               └── dto
+│           │                   └── ScreeningDto.java
+│           └── resources
+│               └── application.yml
+├── settings.gradle
+└── setup_project.sh
+
+127 directories, 89 files
 ```
 
 ## Multi Module
