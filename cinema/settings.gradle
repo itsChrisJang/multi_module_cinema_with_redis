@@ -5,4 +5,5 @@ include("schedule")
 include("seat")
 include("movie")
 include("screen")
-include("starter")
+include("api_gateway")
+
