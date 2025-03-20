@@ -9,12 +9,13 @@ db/conf.d/
 docker-compose.override.yml
 *.env
 .env
+/docker/
 
 # 🛑 Java 빌드 및 실행 파일 제외
-/target/
-/bin/
-/build/
-/out/
+*/target/
+*/bin/
+*/build/
+*/out/
 
 # 🛑 Maven 관련 캐시 파일 제외
 .mvn/
@@ -32,6 +33,13 @@ gradle-app.setting
 !gradle-wrapper.jar
 !gradle-wrapper.properties
 
+# 🛑 Lombok 관련 파일 제외
+.lombok/
+
+# 🛑 Spring Boot 관련 파일 제외
+spring-boot-devtools.properties
+.restart/
+
 # 🛑 IDE 및 개발 환경 관련 파일 제외
 /.idea/
 /.vscode/
@@ -41,7 +49,52 @@ gradle-app.setting
 /.settings/
 /*.log
 
+# 🛑 테스트 관련 파일 제외
+test-output/
+
 # 🛑 운영체제(OS)별 불필요한 파일 제외
 .DS_Store
 Thumbs.db
 *.swp
+*.swo
+
+# 🛑 Log 파일 제외
+logs/
+*.log
+nohup.out
+
+# 🛑 Kubernetes 관련 파일 제외
+/k8s/
+
+# 🛑 Linux/macOS 실행 파일 제외
+*.out
+*.dSYM/
+
+# 🛑 공통적으로 제외해야 할 폴더
+/build/
+/.gradle/
+/.idea/
+/out/
+/m2/
+/MODULE_STATE/
+
+# 🛑 각 모듈별 빌드 폴더 제외
+module_application/build/
+module_common/build/
+module_domain/build/
+module_infrastructure/build/
+module_presentation/build/
+
+# 🛑 IntelliJ, VS Code 관련 설정 파일 제외
+*.iml
+/.project
+/.classpath
+/.settings/
+/.vscode/
+
+# 🛑 OS별 불필요한 파일
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
