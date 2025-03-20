@@ -1,14 +1,17 @@
 package project.redis.schedule.dto;
 
 import java.time.LocalDateTime;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import lombok.*;
 
 @Getter
-@Setter
 @NoArgsConstructor
-public class ScreeningDto {
+@AllArgsConstructor
+@Builder
+@ToString
+public class ScheduleDto {
+
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+
 }

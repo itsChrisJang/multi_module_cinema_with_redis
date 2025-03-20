@@ -20,13 +20,13 @@ public class MovieAdapter {
         this.movieMapper = movieMapper;
     }
 
-    public List<Movie> findMovies() {
+    public List<Movie> findAllMovies() {
         return  movieRepository.findAll().stream()
                 .map(movieMapper::toDomain)
                 .toList();
     }
 
-    public List<Movie> findNowPlayingMovies() {
+    public List<Movie> findCurrentPlayingMovies() {
         return movieRepository.findNowPlayingMovies(LocalDate.now(), LocalDateTime.now()).stream()
                 .map(movieMapper::toDomain)
                 .toList();

@@ -2,15 +2,17 @@ package project.redis.movie.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import project.redis.schedule.dto.ScreeningDto;
+
+import lombok.*;
+import project.redis.schedule.dto.ScheduleDto;
 
 @Getter
-@Setter
 @NoArgsConstructor
-public class NowPlayingMovieResponseDto {
+@AllArgsConstructor
+@Builder
+@ToString
+public class CurrentPlayingMovieResponseDto {
+
     private String movieName;
     private String movieRate;
     private LocalDateTime movieReleaseDate;
@@ -18,5 +20,6 @@ public class NowPlayingMovieResponseDto {
     private Integer movieRunningTime;
     private String movieGenre;
     private String cinemaName;
-    private List<ScreeningDto> screenings;
+    private List<ScheduleDto> screenings;
+
 }
