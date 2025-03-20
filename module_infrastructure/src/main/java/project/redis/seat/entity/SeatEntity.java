@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import project.redis.common.entity.BaseEntity;
 import project.redis.screen.entity.ScreenEntity;
-import project.redis.seat.SeatStatus;
+import project.redis.domain.seat.SeatStatus;
 
 @Entity
 @Table(name = "SEAT")

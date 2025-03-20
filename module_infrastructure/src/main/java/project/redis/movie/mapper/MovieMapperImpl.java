@@ -1,7 +1,7 @@
 package project.redis.movie.mapper;
 
 import org.springframework.stereotype.Component;
-import project.redis.movie.Movie;
+import project.redis.domain.movie.Movie;
 import project.redis.movie.entity.MovieEntity;
 import project.redis.schedule.mapper.ScheduleMapper;
 

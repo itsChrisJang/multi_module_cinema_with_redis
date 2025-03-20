@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
-import project.redis.movie.Movie;
+import project.redis.domain.movie.Movie;
 import project.redis.movie.mapper.MovieMapper;
 import project.redis.movie.repository.MovieRepository;
 

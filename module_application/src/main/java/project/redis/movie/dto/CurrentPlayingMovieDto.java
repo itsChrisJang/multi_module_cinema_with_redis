@@ -1,18 +1,16 @@
 package project.redis.movie.dto;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import project.redis.movie.Movie;
-import project.redis.movie.MovieGenre;
-import project.redis.movie.MovieRate;
-import project.redis.schedule.Schedule;
+import project.redis.domain.movie.Movie;
+import project.redis.domain.movie.MovieGenre;
+import project.redis.domain.movie.MovieRate;
+import project.redis.domain.schedule.Schedule;
 
 @Getter
 @NoArgsConstructor

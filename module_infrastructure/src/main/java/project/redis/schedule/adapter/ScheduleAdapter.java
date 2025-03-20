@@ -2,7 +2,7 @@ package project.redis.schedule.adapter;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import project.redis.schedule.Schedule;
+import project.redis.domain.schedule.Schedule;
 import project.redis.schedule.entity.ScheduleEntity;
 import project.redis.schedule.mapper.ScheduleMapper;
 import project.redis.schedule.repository.ScheduleRepository;

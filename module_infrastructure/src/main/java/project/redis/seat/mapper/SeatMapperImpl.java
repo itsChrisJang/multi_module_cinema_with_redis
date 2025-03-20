@@ -1,7 +1,7 @@
 package project.redis.seat.mapper;
 
 import org.springframework.stereotype.Component;
-import project.redis.seat.Seat;
+import project.redis.domain.seat.Seat;
 import project.redis.seat.entity.SeatEntity;
 
 @Component

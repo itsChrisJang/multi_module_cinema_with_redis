@@ -22,6 +22,8 @@ jar{
 dependencies {
     implementation project(':module_domain')
     implementation project(':module_infrastructure')
+    implementation project(':module_common')
+
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

@@ -3,14 +3,12 @@ package project.redis.movie.service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import project.redis.movie.Movie;
+import project.redis.domain.movie.Movie;
 import project.redis.movie.adapter.MovieAdapter;
 import project.redis.movie.dto.CurrentPlayingMovieDto;
-import project.redis.schedule.Schedule;
 import project.redis.schedule.adapter.ScheduleAdapter;
 
 @Service

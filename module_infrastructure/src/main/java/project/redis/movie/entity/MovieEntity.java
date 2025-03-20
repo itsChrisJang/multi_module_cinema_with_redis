@@ -3,10 +3,9 @@ package project.redis.movie.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import project.redis.common.entity.BaseEntity;
-import project.redis.movie.MovieGenre;
-import project.redis.movie.MovieRate;
+import project.redis.domain.movie.MovieGenre;
+import project.redis.domain.movie.MovieRate;
 import project.redis.schedule.entity.ScheduleEntity;
-import project.redis.screen.entity.ScreenEntity;
 
 import java.time.LocalDate;
 import java.util.List;
