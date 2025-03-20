@@ -19,6 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class MovieEntity extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")

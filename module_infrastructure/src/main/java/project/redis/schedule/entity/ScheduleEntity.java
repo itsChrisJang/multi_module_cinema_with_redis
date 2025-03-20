@@ -18,6 +18,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Builder
 public class ScheduleEntity extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

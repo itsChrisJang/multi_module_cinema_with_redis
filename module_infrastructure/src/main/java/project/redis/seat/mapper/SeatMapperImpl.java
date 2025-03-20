@@ -6,8 +6,10 @@ import project.redis.seat.entity.SeatEntity;
 
 @Component
 public class SeatMapperImpl implements SeatMapper {
+
     @Override
     public Seat toDomain(SeatEntity seatEntity) {
         return Seat.of(seatEntity.getScreen().getId(), seatEntity.getStatus(), seatEntity.getRow(), seatEntity.getColumn());
     }
+
 }

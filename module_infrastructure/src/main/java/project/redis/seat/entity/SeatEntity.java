@@ -33,4 +33,5 @@ public class SeatEntity extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "SEAT_STATUS")
     private SeatStatus status;
+
 }
