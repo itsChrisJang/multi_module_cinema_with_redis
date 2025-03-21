@@ -1,11 +1,11 @@
-package project.redis.schedule.mapper;
+package project.redis.movie.repository.schedule.mapper;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import project.redis.common.mapper.BaseMapper;
 import project.redis.domain.schedule.Schedule;
 import project.redis.domain.screen.Screen;
-import project.redis.schedule.entity.ScheduleEntity;
+import project.redis.movie.repository.schedule.entity.ScheduleEntity;
 import project.redis.screen.entity.ScreenEntity;
 
 @Component

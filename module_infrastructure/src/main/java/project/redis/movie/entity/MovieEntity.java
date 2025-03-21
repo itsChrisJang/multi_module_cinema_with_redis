@@ -5,7 +5,7 @@ import lombok.*;
 import project.redis.common.entity.BaseEntity;
 import project.redis.domain.movie.MovieGenre;
 import project.redis.domain.movie.MovieRate;
-import project.redis.schedule.entity.ScheduleEntity;
+import project.redis.movie.repository.schedule.entity.ScheduleEntity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -46,6 +46,7 @@ public class MovieEntity extends BaseEntity {
     private Integer runningTime;
 
     @OneToMany(mappedBy = "movie", fetch = FetchType.EAGER)
+    @OrderBy("startTime ASC")
     private List<ScheduleEntity> schedules = new ArrayList<>();
 
 }

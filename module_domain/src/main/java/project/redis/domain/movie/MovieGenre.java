@@ -27,6 +27,6 @@ public enum MovieGenre {
                 return genre;
             }
         }
-        throw new IllegalArgumentException("Unknown movie genre: " + description);
+        return null;
     }
 }

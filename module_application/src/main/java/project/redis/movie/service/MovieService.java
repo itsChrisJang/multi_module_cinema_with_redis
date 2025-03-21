@@ -11,7 +11,7 @@ import project.redis.domain.movie.Movie;
 import project.redis.movie.adapter.MovieAdapter;
 import project.redis.movie.model.CurrentPlayingMovieResult;
 import project.redis.movie.model.MovieSearchCondition;
-import project.redis.schedule.adapter.ScheduleAdapter;
+import project.redis.movie.repository.schedule.adapter.ScheduleAdapter;
 
 @Service
 @RequiredArgsConstructor
@@ -24,7 +24,12 @@ public class MovieService {
     public List<CurrentPlayingMovieResult> getCurrentPlayingMovies(
             MovieSearchCondition movieSearchCondition
     ) {
+        // 제목과 장르로 필터링
         List<Movie> currentPlayingMoviesWithSchedules = movieAdapter.getCurrentPlayingMoviesWithSchedules();
+
+        // 개봉일 순서로 정렬
+
+        // Schedule 시작 시간 정렬
         return currentPlayingMoviesWithSchedules.stream()
                 .map(CurrentPlayingMovieResult::of)
                 .collect(Collectors.toList());

@@ -1,7 +1,6 @@
 package project.redis.movie.controller;
 
 import lombok.Getter;
-import project.redis.movie.model.MovieSearchCondition;
 
 @Getter
 public class MovieSearchRequest {
@@ -27,12 +26,4 @@ public class MovieSearchRequest {
 //
 //        return true;
 //    }
-
-//    public MovieSearchCondition toCondition() {
-//        return MovieSearchCondition.builder()
-//                .title(title)
-//                .genre(genre)
-//                .build();
-//    }
-
 }
