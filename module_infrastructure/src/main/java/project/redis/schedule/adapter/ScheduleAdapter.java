@@ -1,11 +1,11 @@
-package project.redis.movie.repository.schedule.adapter;
+package project.redis.schedule.adapter;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import project.redis.common.mapper.BaseMapper;
 import project.redis.domain.schedule.Schedule;
-import project.redis.movie.repository.schedule.repository.ScheduleRepository;
-import project.redis.movie.repository.schedule.entity.ScheduleEntity;
+import project.redis.schedule.repository.ScheduleRepository;
+import project.redis.schedule.entity.ScheduleEntity;
 
 @Component
 @RequiredArgsConstructor

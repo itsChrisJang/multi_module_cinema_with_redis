@@ -11,7 +11,7 @@ import project.redis.domain.movie.Movie;
 import project.redis.movie.adapter.MovieAdapter;
 import project.redis.movie.model.CurrentPlayingMovieResult;
 import project.redis.movie.model.MovieSearchCondition;
-import project.redis.movie.repository.schedule.adapter.ScheduleAdapter;
+import project.redis.schedule.adapter.ScheduleAdapter;
 
 @Service
 @RequiredArgsConstructor

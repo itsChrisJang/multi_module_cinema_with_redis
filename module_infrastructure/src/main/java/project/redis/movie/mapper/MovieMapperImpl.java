@@ -5,7 +5,7 @@ import project.redis.common.mapper.BaseMapper;
 import project.redis.domain.movie.Movie;
 import project.redis.domain.schedule.Schedule;
 import project.redis.movie.entity.MovieEntity;
-import project.redis.movie.repository.schedule.entity.ScheduleEntity;
+import project.redis.schedule.entity.ScheduleEntity;
 
 import java.util.stream.Collectors;
 

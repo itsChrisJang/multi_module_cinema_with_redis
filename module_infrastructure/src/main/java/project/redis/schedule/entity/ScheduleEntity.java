@@ -1,4 +1,4 @@
-package project.redis.movie.repository.schedule.entity;
+package project.redis.schedule.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
