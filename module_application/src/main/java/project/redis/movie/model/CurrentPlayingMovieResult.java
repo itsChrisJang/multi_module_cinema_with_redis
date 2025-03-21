@@ -18,6 +18,7 @@ import project.redis.domain.schedule.Schedule;
 @Builder
 public class CurrentPlayingMovieResult {
 
+    private Long id;
     private String title;
     private MovieGenre genre;
     private LocalDate releaseDate;
@@ -30,6 +31,7 @@ public class CurrentPlayingMovieResult {
             Movie movie
     ) {
         return new CurrentPlayingMovieResult(
+                movie.getId(),
                 movie.getTitle(),
                 movie.getGenre(),
                 movie.getReleaseDate(),
