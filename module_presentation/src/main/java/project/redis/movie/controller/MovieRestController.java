@@ -1,16 +1,13 @@
 package project.redis.movie.controller;
 
-import java.util.List;
-
-import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import project.redis.common.dto.PageRequest;
-import project.redis.common.dto.PageResponse;
 import project.redis.movie.model.CurrentPlayingMovieResult;
 import project.redis.movie.model.MovieSearchCondition;
 import project.redis.movie.service.MovieService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/rest/api/v1/movie")

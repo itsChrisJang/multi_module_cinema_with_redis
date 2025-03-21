@@ -20,10 +20,16 @@ jar {
 }
 
 dependencies {
+//    implementation project(':module_presentation')
+//    implementation project(':module_application')
     implementation project(':module_domain')
+    implementation project(':module_common')
+
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+
     runtimeOnly 'com.mysql:mysql-connector-j'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
