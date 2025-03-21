@@ -21,7 +21,7 @@ public class SeatEntity extends BaseEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "screen_id", nullable = false)
+    @JoinColumn(name = "screen_id", nullable = false, foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private ScreenEntity screen;
 
     @Column(name = "seat_row")

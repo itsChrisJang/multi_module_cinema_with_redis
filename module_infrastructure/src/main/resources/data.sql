@@ -1,5 +1,3 @@
-USE cinemadb;
-
 INSERT INTO `screen` (`NAME`, `REG_ID`, `reg_dt`, `upd_dt`) VALUES ('Screen1', 'admin', '2025-03-21 01:11:40', '2025-03-21 01:11:40');
 INSERT INTO `screen` (`NAME`, `REG_ID`, `reg_dt`, `upd_dt`) VALUES ('Screen2', 'admin', '2025-03-21 01:11:40', '2025-03-21 01:11:40');
 INSERT INTO `screen` (`NAME`, `REG_ID`, `reg_dt`, `upd_dt`) VALUES ('Screen3', 'admin', '2025-03-21 01:11:40', '2025-03-21 01:11:40');
