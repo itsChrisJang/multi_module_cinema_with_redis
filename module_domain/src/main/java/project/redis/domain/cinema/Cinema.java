@@ -8,8 +8,8 @@ import lombok.Getter;
 public class Cinema {
 
     @Getter
-    private String cinemaName;
-    private CinemaSeats cinemaSeats;
+    private String name;
+    private CinemaSeats seats;
 
     public static Cinema of(String cinemaName) {
         return new Cinema(cinemaName, CinemaSeats.create());

@@ -6,10 +6,12 @@ import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 import project.redis.domain.schedule.Schedule;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@ToString
 public class Movie {
 
     private String title;

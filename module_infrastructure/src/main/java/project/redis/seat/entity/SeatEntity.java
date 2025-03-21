@@ -7,7 +7,7 @@ import project.redis.screen.entity.ScreenEntity;
 import project.redis.domain.seat.SeatStatus;
 
 @Entity
-@Table(name = "SEAT")
+@Table(name = "seat")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,21 +17,21 @@ public class SeatEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "SCREEN_ID", nullable = false)
+    @JoinColumn(name = "screen_id", nullable = false)
     private ScreenEntity screen;
 
-    @Column(name = "SEAT_ROW")
+    @Column(name = "seat_row")
     private String row;
 
-    @Column(name = "SEAT_COLUMN")
+    @Column(name = "seat_column")
     private String column;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "SEAT_STATUS")
+    @Column(name = "seat_status")
     private SeatStatus status;
 
 }

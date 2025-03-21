@@ -5,7 +5,7 @@ import lombok.*;
 import project.redis.common.entity.BaseEntity;
 
 @Entity
-@Table(name = "SCREEN")
+@Table(name = "screen")
 @Getter
 @Setter
 @NoArgsConstructor

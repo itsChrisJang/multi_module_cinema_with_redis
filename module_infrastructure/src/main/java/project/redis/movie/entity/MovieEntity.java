@@ -8,10 +8,11 @@ import project.redis.domain.movie.MovieRate;
 import project.redis.schedule.entity.ScheduleEntity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "MOVIE")
+@Table(name = "movie")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,30 +22,30 @@ public class MovieEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "TITLE")
+    @Column(name = "title")
     private String title;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "GENRE")
+    @Column(name = "genre")
     private MovieGenre genre;
 
-    @Column(name = "RELEASE_DATE")
+    @Column(name = "release_de")
     private LocalDate releaseDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "FILM_RATING")
+    @Column(name = "film_rating")
     private MovieRate filmRating;
 
-    @Column(name = "THUMBNAIL_URL")
+    @Column(name = "thumbnail_url")
     private String thumbnailUrl;
 
-    @Column(name = "RUNNING_TIME")
+    @Column(name = "running_time")
     private Integer runningTime;
 
-    @OneToMany(mappedBy = "movie")
-    private List<ScheduleEntity> schedules;
+    @OneToMany(mappedBy = "movie", fetch = FetchType.EAGER)
+    private List<ScheduleEntity> schedules = new ArrayList<>();
 
 }

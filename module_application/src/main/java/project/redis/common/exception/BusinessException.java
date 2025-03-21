@@ -1,5 +1,6 @@
 package project.redis.common.exception;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
 import project.redis.util.JsonUtils;
 

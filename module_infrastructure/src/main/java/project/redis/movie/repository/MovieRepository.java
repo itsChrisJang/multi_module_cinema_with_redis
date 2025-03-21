@@ -21,11 +21,13 @@ public interface MovieRepository extends JpaRepository<MovieEntity, Long> {
             "AND s.endTime >= :now")
     List<MovieEntity> findNowPlayingMovies(@Param("today") LocalDate today, @Param("now") LocalDateTime now);
 
-    @Query("SELECT DISTINCT m FROM MovieEntity m " +
-            "JOIN FETCH m.schedules s " +
+    @Query("SELECT DISTINCT " +
+            "m FROM MovieEntity m " +
+            "JOIN FETCH m.schedules sch " +
+            "JOIN FETCH sch.screen sc " +
             "WHERE m.releaseDate <= :today " +
-            "AND s.startTime <= :now " +
-            "AND s.endTime >= :now")
+            "AND sch.startTime >= :now " +
+            "AND sch.endTime >= :now")
     List<MovieEntity> findNowPlayingMoviesWithSchedules(@Param("today") LocalDate today, @Param("now") LocalDateTime now);
 
 

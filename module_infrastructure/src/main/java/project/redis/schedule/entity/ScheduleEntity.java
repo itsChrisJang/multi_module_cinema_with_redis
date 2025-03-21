@@ -11,30 +11,31 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "SCHEDULE")
+@Table(name = "schedule")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class ScheduleEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "MOVIE_ID")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "movie_id")
     private MovieEntity movie;
 
-    @ManyToOne
-    @JoinColumn(name = "SCREEN_ID", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "screen_id", nullable = false)
     private ScreenEntity screen;
 
-    @Column(name = "START_DT", nullable = false)
+    @Column(name = "start_dt", nullable = false)
     private LocalDateTime startTime;
 
-    @Column(name = "END_DT", nullable = false)
+    @Column(name = "end_dt", nullable = false)
     private LocalDateTime endTime;
 
 }

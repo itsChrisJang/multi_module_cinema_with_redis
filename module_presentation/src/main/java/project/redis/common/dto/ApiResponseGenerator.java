@@ -1,4 +1,4 @@
-package project.redis.movie.common.dto;
+package project.redis.common.dto;
 
 import project.redis.BusinessCode;
 

@@ -9,7 +9,7 @@ db/conf.d/
 docker-compose.override.yml
 *.env
 .env
-/docker/
+/Dockerfile/
 
 # 🛑 Java 빌드 및 실행 파일 제외
 */target/

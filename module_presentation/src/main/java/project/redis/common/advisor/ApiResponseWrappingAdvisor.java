@@ -1,4 +1,4 @@
-package project.redis.movie.common.advisor;
+package project.redis.common.advisor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.GenericTypeResolver;
@@ -18,7 +18,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
-import project.redis.movie.common.dto.ApiResponseGenerator;
+import project.redis.common.dto.ApiResponseGenerator;
 import project.redis.util.JsonUtils;
 
 import java.lang.reflect.Type;
@@ -36,8 +36,7 @@ import java.util.Objects;
  */
 @Slf4j
 @RestControllerAdvice(basePackages = {
-        "com.kurly.tet.guide.springrestdocs.infrastructure.web.product",
-        "com.kurly.tet.guide.springrestdocs.infrastructure.web.order"
+        "project.redis.movie"
 })
 public class ApiResponseWrappingAdvisor implements ResponseBodyAdvice<Object> {
 

@@ -1,4 +1,4 @@
-package project.redis.movie.dto;
+package project.redis.movie.model;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,7 +16,7 @@ import project.redis.domain.schedule.Schedule;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
-public class CurrentPlayingMovieDto {
+public class CurrentPlayingMovieResult {
 
     private String title;
     private MovieGenre genre;
@@ -26,10 +26,10 @@ public class CurrentPlayingMovieDto {
     private Integer runningTime;
     private List<Schedule> schedules;
 
-    public static CurrentPlayingMovieDto of(
+    public static CurrentPlayingMovieResult of(
             Movie movie
     ) {
-        return new CurrentPlayingMovieDto(
+        return new CurrentPlayingMovieResult(
                 movie.getTitle(),
                 movie.getGenre(),
                 movie.getReleaseDate(),

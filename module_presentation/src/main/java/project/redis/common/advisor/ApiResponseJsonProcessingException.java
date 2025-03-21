@@ -1,4 +1,4 @@
-package project.redis.movie.common.advisor;
+package project.redis.common.advisor;
 
 import org.springframework.http.HttpStatus;
 import project.redis.common.exception.BusinessException;

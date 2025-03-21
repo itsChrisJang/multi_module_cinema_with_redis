@@ -20,4 +20,13 @@ public enum MovieGenre {
     MovieGenre(String movieGenreDescription) {
         this.description = movieGenreDescription;
     }
+
+    public static MovieGenre fromDescription(String description) {
+        for (MovieGenre genre : MovieGenre.values()) {
+            if (genre.description.equalsIgnoreCase(description)) {
+                return genre;
+            }
+        }
+        throw new IllegalArgumentException("Unknown movie genre: " + description);
+    }
 }

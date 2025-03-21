@@ -1,4 +1,4 @@
-package project.redis.movie.dto;
+package project.redis.movie.model;
 
 import java.time.LocalDateTime;
 import java.util.List;
