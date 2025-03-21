@@ -14,6 +14,7 @@ import project.redis.domain.schedule.Schedule;
 @ToString
 public class Movie {
 
+    private Long id;
     private String title;
     private MovieGenre genre;
     private LocalDate releaseDate;
@@ -23,6 +24,7 @@ public class Movie {
     private List<Schedule> schedules;
 
     public static Movie of(
+            Long id,
             String title,
             MovieGenre genre,
             LocalDate releaseDate,
@@ -31,7 +33,7 @@ public class Movie {
             Integer runningTime,
             List<Schedule> schedules
     ) {
-        return new Movie(title, genre, releaseDate, rating, thumbnailUrl, runningTime, schedules);
+        return new Movie(id, title, genre, releaseDate, rating, thumbnailUrl, runningTime, schedules);
     }
 
     public boolean isReleasedBefore(LocalDate date) {

@@ -23,6 +23,7 @@ public class MovieMapperImpl implements BaseMapper<Movie, MovieEntity> {
             MovieEntity movieEntity
     ) {
         return Movie.of(
+                movieEntity.getId(),
                 movieEntity.getTitle(),
                 movieEntity.getGenre(),
                 movieEntity.getReleaseDate(),
