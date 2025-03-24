@@ -1,5 +1,6 @@
 package project.redis.movie.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,10 +22,13 @@ public class MovieRestController {
 
     @GetMapping("/now-playing")
     public List<CurrentPlayingMovieResult> getNowPlayingMovies(
-            MovieSearchRequest movieSearchRequest
+            @Valid MovieSearchRequest movieSearchRequest
     ) {
         return movieService.getCurrentPlayingMovies(
-                MovieSearchCondition.fromRequest(movieSearchRequest.getTitle(), movieSearchRequest.getGenre())
+                MovieSearchCondition.fromRequest(
+                        movieSearchRequest.getTitle(),
+                        movieSearchRequest.getGenre()
+                )
         );
     }
 }

@@ -20,13 +20,21 @@ jar {
 }
 
 dependencies {
-//    implementation project(':module_presentation')
 //    implementation project(':module_application')
     implementation project(':module_domain')
     implementation project(':module_common')
 
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // ✅ QueryDSL JPA
+    implementation "com.querydsl:querydsl-jpa:5.0.0:jakarta"
+    annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api:3.1.0"
+
+    // ✅ Lombok 사용 시 함께 설정
+    compileOnly "org.projectlombok:lombok"
+    annotationProcessor "org.projectlombok:lombok"
 
     runtimeOnly 'com.mysql:mysql-connector-j'
 
@@ -36,4 +44,17 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+// ✅ Q 클래스가 생성될 경로를 소스셋에 포함시켜야 IDE에서 인식됨
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', 'build/generated/querydsl']
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.annotationProcessorGeneratedSourcesDirectory = file("build/generated/querydsl")
 }

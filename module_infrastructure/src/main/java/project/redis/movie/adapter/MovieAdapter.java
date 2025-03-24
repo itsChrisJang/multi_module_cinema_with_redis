@@ -35,7 +35,9 @@ public class MovieAdapter {
                 .toList();
     }
 
-    public List<Movie> getCurrentPlayingMoviesWithSchedules() {
+    public List<Movie> getCurrentPlayingMoviesWithSchedules(
+//            MovieSearchCondition movieSearchCondition
+    ) {
         return movieRepository.findNowPlayingMoviesWithSchedules(LocalDate.now(), LocalDateTime.now()).stream()
                 .map(movieMapper::toDomain)
                 .toList();
