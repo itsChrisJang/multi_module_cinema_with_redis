@@ -3,6 +3,6 @@ rootProject.name = 'cinema'
 include 'module_presentation'
 include 'module_application'
 include 'module_domain'
-include 'module_infrastructure'
 include 'module_common'
+include 'module_infrastructure'
 

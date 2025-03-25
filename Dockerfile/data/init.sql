@@ -63,3 +63,6 @@ CREATE TABLE `MOVIE` (
     `UPD_ID` VARCHAR(30) NULL COMMENT '수정자',
      PRIMARY KEY (`ID`)
 );
+
+
+

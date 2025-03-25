@@ -23,7 +23,7 @@ public enum MovieGenre {
 
     public static MovieGenre fromDescription(String description) {
         for (MovieGenre genre : MovieGenre.values()) {
-            if (genre.description.equalsIgnoreCase(description)) {
+            if (genre.name().equalsIgnoreCase(description)) {
                 return genre;
             }
         }

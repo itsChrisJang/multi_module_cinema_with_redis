@@ -1,16 +1,14 @@
 package project.redis.movie.model;
 
-import java.time.LocalDate;
-import java.util.List;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import project.redis.domain.movie.Movie;
+import lombok.*;
 import project.redis.domain.movie.MovieGenre;
 import project.redis.domain.movie.MovieRate;
 import project.redis.domain.schedule.Schedule;
+import project.redis.movie.dto.CurrentPlayingMovieProjection;
+import project.redis.movie.dto.ScheduleProjection;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -25,20 +23,20 @@ public class CurrentPlayingMovieResult {
     private MovieRate rating;
     private String thumbnailUrl;
     private Integer runningTime;
-    private List<Schedule> schedules;
+    private List<ScheduleProjection> schedules;
 
     public static CurrentPlayingMovieResult of(
-            Movie movie
+            CurrentPlayingMovieProjection movieProjection
     ) {
         return new CurrentPlayingMovieResult(
-                movie.getId(),
-                movie.getTitle(),
-                movie.getGenre(),
-                movie.getReleaseDate(),
-                movie.getRate(),
-                movie.getThumbnailUrl(),
-                movie.getRunningTime(),
-                movie.getSchedules()
+                movieProjection.id(),
+                movieProjection.title(),
+                movieProjection.genre(),
+                movieProjection.releaseDate(),
+                movieProjection.rating(),
+                movieProjection.thumbnailUrl(),
+                movieProjection.runningTime(),
+                movieProjection.schedules()
         );
     }
 
