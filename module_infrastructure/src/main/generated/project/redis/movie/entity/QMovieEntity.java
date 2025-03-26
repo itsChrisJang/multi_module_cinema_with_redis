@@ -22,9 +22,9 @@ public class QMovieEntity extends EntityPathBase<MovieEntity> {
 
     public final project.redis.common.entity.QBaseEntity _super = new project.redis.common.entity.QBaseEntity(this);
 
-    public final EnumPath<project.redis.domain.movie.MovieRate> filmRating = createEnum("filmRating", project.redis.domain.movie.MovieRate.class);
+    public final EnumPath<project.redis.domain.movie.Rating> filmRating = createEnum("filmRating", project.redis.domain.movie.Rating.class);
 
-    public final EnumPath<project.redis.domain.movie.MovieGenre> genre = createEnum("genre", project.redis.domain.movie.MovieGenre.class);
+    public final EnumPath<project.redis.domain.movie.Genre> genre = createEnum("genre", project.redis.domain.movie.Genre.class);
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 

@@ -3,7 +3,7 @@ package project.redis.domain.movie;
 import lombok.Getter;
 
 @Getter
-public enum MovieRate {
+public enum Rating {
     ALL("전체관람가"),
     TWELVE("12세 이상 관람가"),
     FIFTEEN("15세 이상 관람가"),
@@ -12,7 +12,7 @@ public enum MovieRate {
 
     private final String description;
 
-    MovieRate(String description) {
+    Rating(String description) {
         this.description = description;
     }
 }

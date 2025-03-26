@@ -11,20 +11,11 @@ spring:
     show-sql: true
     properties:
       hibernate:
-        format_sql: true   # SQL을 보기 좋게 출력
-        show_sql: true     # 실행되는 SQL 출력
-        use_sql_comments: true # SQL 설명 표시
+        format_sql: false   # SQL을 보기 좋게 출력
+        show_sql: false     # 실행되는 SQL 출력
+        use_sql_comments: false # SQL 설명 표시
         dialect: org.hibernate.dialect.MySQL8Dialect
   sql:
     init:
       mode: never  # 항상 `data.sql` 실행
       data-locations: classpath:data.sql  # 👈 명시적 지정 권장
-
-logging:
-  level:
-    org:
-      hibernate:
-        orm:
-          jdbc:
-            bind: TRACE
-        SQL: debug

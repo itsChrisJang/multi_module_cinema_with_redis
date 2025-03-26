@@ -1,4 +1,4 @@
-package project.redis.movie.model;
+package project.redis.movie.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,7 +11,7 @@ import project.redis.schedule.dto.ScheduleDto;
 @AllArgsConstructor
 @Builder
 @ToString
-public class CurrentPlayingMovieResponseDto {
+public class CurrentPlayingMovieResponse {
 
     private String movieName;
     private String movieRate;

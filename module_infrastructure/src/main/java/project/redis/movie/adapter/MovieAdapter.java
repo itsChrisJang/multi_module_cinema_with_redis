@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import project.redis.common.mapper.BaseMapper;
 import project.redis.domain.movie.Movie;
-import project.redis.domain.movie.MovieGenre;
+import project.redis.domain.movie.Genre;
 import project.redis.movie.dto.CurrentPlayingMovieProjection;
 import project.redis.movie.entity.MovieEntity;
 import project.redis.movie.repository.MovieQueryRepository;
@@ -42,9 +42,9 @@ public class MovieAdapter {
 
     public List<CurrentPlayingMovieProjection> getCurrentPlayingMoviesWithSchedules(
             String title,
-            MovieGenre genre
+            Genre genre
     ) {
-        return movieQueryRepository.findNowPlayingMoviesWithSchedules(title, genre);
+        return movieQueryRepository.findCurrentPlayingMoviesWithSchedules(title, genre);
     }
 
 }

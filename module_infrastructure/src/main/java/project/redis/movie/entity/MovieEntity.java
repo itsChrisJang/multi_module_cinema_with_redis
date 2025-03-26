@@ -3,13 +3,17 @@ package project.redis.movie.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import project.redis.common.entity.BaseEntity;
-import project.redis.domain.movie.MovieGenre;
-import project.redis.domain.movie.MovieRate;
+import project.redis.common.mapper.BaseMapper;
+import project.redis.domain.movie.Genre;
+import project.redis.domain.movie.Movie;
+import project.redis.domain.movie.Rating;
+import project.redis.domain.schedule.Schedule;
 import project.redis.schedule.entity.ScheduleEntity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "movie")
@@ -29,14 +33,14 @@ public class MovieEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "genre")
-    private MovieGenre genre;
+    private Genre genre;
 
     @Column(name = "release_de")
     private LocalDate releaseDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "film_rating")
-    private MovieRate filmRating;
+    private Rating filmRating;
 
     @Column(name = "thumbnail_url")
     private String thumbnailUrl;
@@ -48,4 +52,21 @@ public class MovieEntity extends BaseEntity {
     @OrderBy("startTime ASC")
     private List<ScheduleEntity> schedules = new ArrayList<>();
 
+    public Movie toDomain(
+            MovieEntity movieEntity,
+            BaseMapper<Schedule, ScheduleEntity> scheduleMapper
+    ) {
+        return new Movie(
+                movieEntity.getId(),
+                movieEntity.getTitle(),
+                movieEntity.getGenre(),
+                movieEntity.getReleaseDate(),
+                movieEntity.getFilmRating(),
+                movieEntity.getThumbnailUrl(),
+                movieEntity.getRunningTime(),
+                movieEntity.getSchedules().stream()
+                        .map(scheduleMapper::toDomain)
+                        .collect(Collectors.toList())
+        );
+    }
 }

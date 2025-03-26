@@ -1,39 +1,34 @@
 package project.redis.domain.movie;
 
-import java.time.LocalDate;
-import java.util.List;
-
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 import project.redis.domain.schedule.Schedule;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 public class Movie {
 
     private Long id;
     private String title;
-    private MovieGenre genre;
+    private Genre genre;
     private LocalDate releaseDate;
-    private MovieRate rate;
+    private Rating rate;
     private String thumbnailUrl;
     private Integer runningTime;
     private List<Schedule> schedules;
 
-    public static Movie of(
-            Long id,
-            String title,
-            MovieGenre genre,
-            LocalDate releaseDate,
-            MovieRate rating,
-            String thumbnailUrl,
-            Integer runningTime,
-            List<Schedule> schedules
-    ) {
-        return new Movie(id, title, genre, releaseDate, rating, thumbnailUrl, runningTime, schedules);
+    public Movie(Long id, String title, Genre genre, LocalDate releaseDate, Rating rate, String thumbnailUrl, Integer runningTime, List<Schedule> schedules) {
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.releaseDate = releaseDate;
+        this.rate = rate;
+        this.thumbnailUrl = thumbnailUrl;
+        this.runningTime = runningTime;
+        this.schedules = schedules;
     }
 
     public boolean isReleasedBefore(LocalDate date) {

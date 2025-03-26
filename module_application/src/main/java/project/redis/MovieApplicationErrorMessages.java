@@ -3,7 +3,7 @@ package project.redis;
 import lombok.Getter;
 
 @Getter
-public enum BusinessCode {
+public enum MovieApplicationErrorMessages {
     //COMMON
     SUCCESS("0000","정상"),
 
@@ -15,14 +15,12 @@ public enum BusinessCode {
 
     //Application
     INTERNAL_SERVER_ERROR("S500", "시스템 내부오류가 발생했습니다. 담당자에게 문의바랍니다."),
-
-
     ;
 
     private final String code;
     private final String description;
 
-    BusinessCode(String code, String description) {
+    MovieApplicationErrorMessages(String code, String description) {
         this.code = code;
         this.description = description;
     }

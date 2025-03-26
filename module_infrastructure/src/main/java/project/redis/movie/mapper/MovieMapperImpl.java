@@ -7,8 +7,6 @@ import project.redis.domain.schedule.Schedule;
 import project.redis.movie.entity.MovieEntity;
 import project.redis.schedule.entity.ScheduleEntity;
 
-import java.util.stream.Collectors;
-
 @Component
 public class MovieMapperImpl implements BaseMapper<Movie, MovieEntity> {
 
@@ -22,17 +20,6 @@ public class MovieMapperImpl implements BaseMapper<Movie, MovieEntity> {
     public Movie toDomain(
             MovieEntity movieEntity
     ) {
-        return Movie.of(
-                movieEntity.getId(),
-                movieEntity.getTitle(),
-                movieEntity.getGenre(),
-                movieEntity.getReleaseDate(),
-                movieEntity.getFilmRating(),
-                movieEntity.getThumbnailUrl(),
-                movieEntity.getRunningTime(),
-                movieEntity.getSchedules().stream()
-                        .map(scheduleMapper::toDomain)
-                        .collect(Collectors.toList())
-        );
+        return movieEntity.toDomain(movieEntity, scheduleMapper);
     }
 }

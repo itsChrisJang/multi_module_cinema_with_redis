@@ -3,7 +3,7 @@ package project.redis.domain.movie;
 import lombok.Getter;
 
 @Getter
-public enum MovieGenre {
+public enum Genre {
     ACTION("액션"),
     COMEDY("코미디"),
     DRAMA("드라마"),
@@ -17,13 +17,13 @@ public enum MovieGenre {
 
     private final String description;
 
-    MovieGenre(String movieGenreDescription) {
-        this.description = movieGenreDescription;
+    Genre(String description) {
+        this.description = description;
     }
 
-    public static MovieGenre fromDescription(String description) {
-        for (MovieGenre genre : MovieGenre.values()) {
-            if (genre.name().equalsIgnoreCase(description)) {
+    public static Genre from(String name) {
+        for (Genre genre : Genre.values()) {
+            if (genre.name().equalsIgnoreCase(name)) {
                 return genre;
             }
         }

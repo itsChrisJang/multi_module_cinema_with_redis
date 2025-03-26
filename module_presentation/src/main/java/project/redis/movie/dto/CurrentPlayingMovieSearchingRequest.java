@@ -1,4 +1,4 @@
-package project.redis.movie.controller;
+package project.redis.movie.dto;
 
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MovieSearchRequest {
+public class CurrentPlayingMovieSearchingRequest {
 
     @Size(max = 255, message = "영화 제목은 255자 이하로 입력해주세요.")
     private String title;

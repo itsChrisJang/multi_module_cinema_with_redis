@@ -21,10 +21,7 @@ export const options = {
     },
 };
 
-// 🎬 Movie title 리스트: Movie1 ~ Movie30
-const titles = Array.from({ length: 30 }, (_, i) => `Movie${i + 1}`);
-
-// 🎭 MovieGenre Enum 값 (백엔드에서 사용하는 실제 enum 키)
+// 🎭 MovieGenre Enum 값
 const genres = [
     'ACTION',
     'COMEDY',
@@ -38,15 +35,20 @@ const genres = [
     'ANIMATION'
 ];
 
+// 알파벳 a ~ z 중 하나 랜덤 선택
+function getRandomAlphabet() {
+    const alphabets = 'abcdefghijklmnopqrstuvwxyz';
+    return alphabets.charAt(Math.floor(Math.random() * alphabets.length));
+}
+
 export default function () {
-    // 랜덤하게 title, genre를 사용할지 말지 결정
-    const useTitle = Math.random() > 0.3; // 70% 확률 사용
-    const useGenre = Math.random() > 0.5; // 50% 확률 사용
+    const useTitle = Math.random() > 0.3; // 70% 확률로 사용
+    const useGenre = Math.random() > 0.5; // 50% 확률로 사용
 
     const queryParams = [];
 
     if (useTitle) {
-        const title = randomItem(titles);
+        const title = getRandomAlphabet();
         queryParams.push(`title=${encodeURIComponent(title)}`);
     }
 
@@ -66,5 +68,5 @@ export default function () {
         'response time < 500ms': (r) => r.timings.duration < 500,
     });
 
-    sleep(randomIntBetween(1, 3)); // 유저 간 요청 간격
+    sleep(randomIntBetween(1, 3));
 }

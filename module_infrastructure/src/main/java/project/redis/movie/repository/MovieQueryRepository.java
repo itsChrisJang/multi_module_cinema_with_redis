@@ -2,8 +2,9 @@ package project.redis.movie.repository;
 
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
-import project.redis.domain.movie.MovieGenre;
+import project.redis.domain.movie.Genre;
 import project.redis.movie.dto.CurrentPlayingMovieProjection;
 import project.redis.movie.dto.FlatMovieScheduleRow;
 import project.redis.movie.dto.ScheduleProjection;
@@ -16,9 +17,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.querydsl.core.group.GroupBy.groupBy;
-import static com.querydsl.core.group.GroupBy.list;
-
 @Repository
 public class MovieQueryRepository {
 
@@ -28,10 +26,10 @@ public class MovieQueryRepository {
         this.queryFactory = queryFactory;
     }
 
-
-    public List<CurrentPlayingMovieProjection> findNowPlayingMoviesWithSchedules(
+    @Cacheable(value = "current_playing_movie", key =  "#title + '_' + #genre")
+    public List<CurrentPlayingMovieProjection> findCurrentPlayingMoviesWithSchedules(
             String title,
-            MovieGenre genre
+            Genre genre
     ) {
         QMovieEntity movie = QMovieEntity.movieEntity;
         QScheduleEntity schedule = QScheduleEntity.scheduleEntity;

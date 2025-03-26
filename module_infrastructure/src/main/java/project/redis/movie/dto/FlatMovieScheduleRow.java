@@ -1,7 +1,7 @@
 package project.redis.movie.dto;
 
-import project.redis.domain.movie.MovieGenre;
-import project.redis.domain.movie.MovieRate;
+import project.redis.domain.movie.Genre;
+import project.redis.domain.movie.Rating;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -10,9 +10,9 @@ import java.time.LocalDateTime;
 public record FlatMovieScheduleRow(
         Long movieId,
         String title,
-        MovieGenre genre,
+        Genre genre,
         LocalDate releaseDate,
-        MovieRate rating,
+        Rating rating,
         String thumbnailUrl,
         Integer runningTime,
         LocalDateTime startTime,

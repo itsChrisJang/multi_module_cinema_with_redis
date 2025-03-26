@@ -1,12 +1,12 @@
-package project.redis.movie.model;
+package project.redis.movie.dto;
 
 import lombok.Builder;
-import project.redis.domain.movie.MovieGenre;
+import project.redis.domain.movie.Genre;
 
 @Builder
 public record MovieSearchCondition(
         String title,
-        MovieGenre genre
+        Genre genre
 ) {
     public static MovieSearchCondition fromRequest(
             String title,
@@ -14,7 +14,7 @@ public record MovieSearchCondition(
     ) {
         return MovieSearchCondition.builder()
                 .title(title)
-                .genre(MovieGenre.fromDescription(genre))
+                .genre(Genre.from(genre))
                 .build();
     }
 }

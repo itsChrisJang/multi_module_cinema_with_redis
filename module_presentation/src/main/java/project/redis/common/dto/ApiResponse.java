@@ -2,7 +2,7 @@ package project.redis.common.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import project.redis.BusinessCode;
+import project.redis.MovieApplicationErrorMessages;
 
 @Getter
 @NoArgsConstructor
@@ -11,9 +11,9 @@ public class ApiResponse<T> {
     private String message;
     private T data;
 
-    public ApiResponse(BusinessCode businessCode) {
-        this.code = businessCode.getCode();
-        this.message = businessCode.getDescription();
+    public ApiResponse(MovieApplicationErrorMessages movieApplicationErrorMessages) {
+        this.code = movieApplicationErrorMessages.getCode();
+        this.message = movieApplicationErrorMessages.getDescription();
     }
 
     public ApiResponse(String code, String message) {

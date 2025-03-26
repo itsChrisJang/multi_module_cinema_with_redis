@@ -1,11 +1,10 @@
 package project.redis.movie.controller;
 
 import jakarta.validation.Valid;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.logging.LogLevel;
 import org.springframework.web.bind.annotation.*;
-import project.redis.movie.model.CurrentPlayingMovieResult;
-import project.redis.movie.model.MovieSearchCondition;
+import project.redis.movie.dto.CurrentPlayingMovieResult;
+import project.redis.movie.dto.MovieSearchCondition;
+import project.redis.movie.dto.CurrentPlayingMovieSearchingRequest;
 import project.redis.movie.service.MovieService;
 
 import java.util.List;
@@ -22,12 +21,12 @@ public class MovieRestController {
 
     @GetMapping("/now-playing")
     public List<CurrentPlayingMovieResult> getNowPlayingMovies(
-            @Valid @ModelAttribute MovieSearchRequest movieSearchRequest
+            @Valid @ModelAttribute CurrentPlayingMovieSearchingRequest currentPlayingMovieSearchingRequest
     ) {
         return movieService.getCurrentPlayingMovies(
                 MovieSearchCondition.fromRequest(
-                        movieSearchRequest.getTitle(),
-                        movieSearchRequest.getGenre()
+                        currentPlayingMovieSearchingRequest.getTitle(),
+                        currentPlayingMovieSearchingRequest.getGenre()
                 )
         );
     }

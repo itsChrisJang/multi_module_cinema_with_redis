@@ -1,10 +1,10 @@
 package project.redis.common.dto;
 
-import project.redis.BusinessCode;
+import project.redis.MovieApplicationErrorMessages;
 
 public class ApiResponseGenerator {
-    private static final ApiResponse<Void> SUCCESS = new ApiResponse<>(BusinessCode.SUCCESS);
-    private static final ApiResponse<Void> FAILURE = new ApiResponse<>(BusinessCode.INTERNAL_SERVER_ERROR);
+    private static final ApiResponse<Void> SUCCESS = new ApiResponse<>(MovieApplicationErrorMessages.SUCCESS);
+    private static final ApiResponse<Void> FAILURE = new ApiResponse<>(MovieApplicationErrorMessages.INTERNAL_SERVER_ERROR);
 
     private ApiResponseGenerator() {
         throw new UnsupportedOperationException("Utility class.");
